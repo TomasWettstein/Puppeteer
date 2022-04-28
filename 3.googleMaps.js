@@ -5,9 +5,13 @@ const url = 'https://www.google.com.ar/maps'; //Declaro variable con url de goog
     // Lanzamos un nuevo navegador.
     const browser = await puppeteer.launch({
         headless: false,
-        slowMo: 70
-    }); // Con esta funcion configuramos para que se vea el navegador y le configuramos la velocidad
+        slowMo: 70,
+        args: [
+            '--window-size=1280,720'
+          ]
+    }); // Con esta funcion configuramos para que se vea el navegador, le configuramos la velocidad y en que tamaño se va a abrir la pantalla del navegador
     const page = await browser.newPage(); //Abrimos nueva pestaña
+    page.setViewport({ width: 1280, height: 720 }); //Con esto definimos el ancho y alto del contenido de la pagina.
    
     // Vamos a la URL.
     await page.goto(url); // Se abre googleMaps
