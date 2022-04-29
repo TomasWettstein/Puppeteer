@@ -21,6 +21,10 @@ const url = 'https://www.youtube.com/'; //Declaro variable con url de googleMaps
   await page.waitForXPath(primerVideo);
   let nodo = await page.$x(primerVideo);
   await nodo[0].click();
+  const titulo = '//*[@id="container"]/h1';
+  await page.waitForXPath(titulo);
+  let nodoTitulo = await page.$x(titulo);
+  console.log("Estas escuchando: ", await page.evaluate(el => el.textContent, nodoTitulo[0]))
   setTimeout(() => {
     browser.close()
   }, 10000);
