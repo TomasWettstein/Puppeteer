@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests/example.test.js",
+    "test2": "mocha ./tests/2.test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/TomasWettstein/Puppeteer#readme",
   "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "prettier": "^2.6.2",
     "puppeteer": "^13.6.0"
   }
 }
