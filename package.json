@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/example.test.js",
-    "test2": "mocha ./tests/2.test.js"
+    "test2": "mocha ./tests/2.test.js",
+    "test3": "mocha ./tests/3.test.js"
   },
   "repository": {
     "type": "git",

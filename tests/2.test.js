@@ -50,4 +50,17 @@ describe('Test inputs', () => {
         await page.waitForTimeout(2000)
         browser.close();
     })
+    it('Manipulando URL y titulo', async function(){
+        this.timeout(20000);
+        const browser = await puppeteer.launch({
+            headless: false,
+            slowMo: 30
+        });
+        const page = await browser.newPage();
+        await page.goto('https://example.com');
+        const titulo = await page.title(); //Este metodo retorna el valor del titulo de la pagina
+        const url = await page.url(); //Este metodo retorna la url
+        console.log("TITULO: ", titulo, " URL: ", url)
+        await browser.close();
+    })
 })
