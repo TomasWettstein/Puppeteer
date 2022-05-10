@@ -18,4 +18,33 @@ describe('Testeo Nro3', () => {
         expect(count).to.be.equal(2)
         browser.close()
     })
+    it('Keyboard Press', async function () {
+        this.timeout(30000);
+        const browser = await puppeteer.launch({
+            headless: false,
+            slowMo: 40
+        })
+        const page = await browser.newPage();
+        await page.goto('http://zero.webappsecurity.com/index.html');
+        const input = '#searchTerm';
+        await page.waitForSelector(input);
+        await page.type(input, "Holaa")
+        await page.keyboard.press('Enter'); //Presionamos enter
+        browser.close();
+    })
+    it('XPath', async function () {
+        this.timeout(10000)
+        const browser = await puppeteer.launch({
+            headless: false, 
+            slowMo: 10
+        });
+        const page = await browser.newPage();
+        await page.goto('https://example.com');
+        const xpath = '/html/body/div/h1'
+        await page.waitForXPath(xpath)
+        let nodoTitulo = await page.$x(xpath);
+        console.log(await page.evaluate(el => el.textContent, nodoTitulo[0]))
+        await page.waitForTimeout(3000);
+        await browser.close()
+    })
 })
